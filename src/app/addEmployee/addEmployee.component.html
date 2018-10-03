@@ -1,0 +1,58 @@
+<div class="container col-lg-6 employee-form-container" >
+    <h2 class="form-heading">Add Employee</h2>
+
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                       <div class="form-group">
+                           <label for="firstName">First Name</label>
+                           <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" pattern="[A-Za-z]" required />
+                           <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                               <div *ngIf="firstName.errors.required">First Name is required</div>
+                               <div *ngIf="firstName.errors.pattern">Name can only have letters</div>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="id">Id</label>
+                           <input type="text" class="form-control" name="id" [(ngModel)]="model.id" #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" pattern="[A-Za-z0-9]{6}" required />
+                           <div *ngIf="f.submitted && id.invalid" class="invalid-feedback">
+                               <div *ngIf="id.errors.required">Id is required</div>
+                               <div *ngIf="id.errors.pattern">6 letter Id is required. Only letters and numerics permitted</div>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="lastName">Last Name</label>
+                           <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" pattern="[A-Za-z]" required />
+                           <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                               <div *ngIf="lastName.errors.required">Last Name is required</div>
+                               <div *ngIf="lastName.errors.pattern">Name can only have letters</div>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="dob">DoB</label>
+                           <input type="date" class="form-control" name="dob" [(ngModel)]="model.dob" #dob="ngModel" [ngClass]="{ 'is-invalid': f.submitted && dob.invalid }" required />
+                           <div *ngIf="f.submitted && dob.invalid" class="invalid-feedback">
+                               <div *ngIf="dob.errors.required">DoB is required</div>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="gender">Gender</label>
+                           <input type="text" class="form-control" name="gender" [(ngModel)]="model.gender" #gender="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gender.invalid }" required  />
+                           <div *ngIf="f.submitted && gender.invalid" class="invalid-feedback">
+                               <div *ngIf="gender.errors.required">Gender is required</div>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="department">Department</label>
+                           <input type="text" class="form-control" name="department" [(ngModel)]="model.department" #department="ngModel" [ngClass]="{ 'is-invalid': f.submitted && department.invalid }" pattern="[A-Za-z]" required minlength="6" />
+                           <div *ngIf="f.submitted && department.invalid" class="invalid-feedback">
+                               <div *ngIf="department.errors.required">Department is required</div>
+                               <div *ngIf="department.errors.pattern">Department can only have letters</div>
+                               <div *ngIf="department.errors.minlength">Department must be at least 6 characters</div>
+
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <button class="btn btn-primary">Add</button>
+                       </div>
+                   </form>
+
+</div>
