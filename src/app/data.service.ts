@@ -8,10 +8,10 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
     getUsers() {
-      return this.http.get('https://jsonplaceholder.typicode.com/users')
+      return this.http.get('http://localhost:8080/users')
     }
 
-    saveUser(user){this.http.post("http://127.0.0.1:3000/customers", user)
+    saveUser(user){this.http.post("http://localhost:8080/user", user)
        .subscribe(
            data => {
                alert("User Added successfully");
